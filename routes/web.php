@@ -29,6 +29,23 @@ Route::get('/AppPrueba', function () {
     return view('welcome');
 });
 
+
+Route::get('/AppPrueba/Variables', function () {
+    $nombre_aplicacion = env('APP_NAME');
+    return response()->make("
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Página - Home</title>
+        </head>
+        <body>
+            <h3> Home </h3>
+            <h5> {$nombre_aplicacion} </h5>
+        </body>
+        </html>
+    ", 200);
+});
+
 Route::get('/AppPrueba/formulario', [FormController::class, 'create'])->name('formulario.create');
 Route::post('/AppPrueba/formulario', [FormController::class, 'store'])->name('formulario.store');
 
