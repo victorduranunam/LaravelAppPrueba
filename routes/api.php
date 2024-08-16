@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/AppPrueba/APIalumnos', [AlumnoApiController::class, 'index']);
 Route::get('/AppPrueba/probarApi', [probarApiController::class, 'fetchData']);
 
-Route::get('/AppPrueba/usuarios', [ApiUserController::class, 'index']);
+Route::get('/AppPrueba/usuarios', [ApiUserController::class, 'index'])->middleware('auth:api');
 Route::get('/AppPrueba/usuarios/{id}', [ApiUserController::class, 'showByID']);
 Route::post('/AppPrueba/usuarios/', [ApiUserController::class, 'store']);
 Route::delete('/AppPrueba/usuarios/{id}', [ApiUserController::class, 'destroy']);
