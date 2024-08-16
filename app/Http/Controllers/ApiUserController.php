@@ -20,8 +20,20 @@ use App\Models\User;
  * )
  */
 
+
+
+
 class ApiUserController extends Controller
 {
+
+     // Constructor para aplicar el middleware de autenticación JWT
+     public function __construct()
+     {
+         $this->middleware('auth:api');
+     }
+
+
+
     /**
      * @OA\Get(
      *     path="/usuarios",

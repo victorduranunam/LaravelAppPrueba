@@ -30,3 +30,6 @@ Route::post('/AppPrueba/usuarios/', [ApiUserController::class, 'store']);
 Route::delete('/AppPrueba/usuarios/{id}', [ApiUserController::class, 'destroy']);
 Route::put('/AppPrueba/usuarios/{id}', [ApiUserController::class, 'update']);
 
+Route::middleware('auth:api')->get('/AppPrueba/usuarios', function (Request $request) {
+    return $request->user();
+});
